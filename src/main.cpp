@@ -2,7 +2,7 @@
 #include <dpp/dpp.h>
 #include <string>
 #include "cfg/config.h"
-#include "commands.h"
+#include "modules/external_functions.h"
 
 int main() {
     dpp::cluster bot(bot_token);
@@ -11,7 +11,7 @@ int main() {
 
     bot.on_ready([&bot](const dpp::ready_t& event) {
         if (event.shard_id == 0) {
-            std::cout << "[EXTERNAL CONSOLE IO] Bot is ready." << std::endl;
+            std::cout << "[EXTERNAL CONSOLE IO] Enigma is ready." << std::endl;
         }
     });
 
@@ -29,7 +29,7 @@ int main() {
             iss >> cmd; // Extract command
 
             // Pass command and arguments to the handler
-            handle_prefix_command(bot, event, cmd, iss);
+            handle_puzzle_prompts(bot, event, cmd, iss);
         }
     });
 
