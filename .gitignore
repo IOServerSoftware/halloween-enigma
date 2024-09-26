@@ -34,3 +34,6 @@
 # Others
 cfg/
 .vscode/
+lib/
+build/
+.DS_Store
