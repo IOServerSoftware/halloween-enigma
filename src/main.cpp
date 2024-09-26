@@ -5,7 +5,7 @@
 #include "commands.h"
 
 int main() {
-    dpp::cluster bot(token);
+    dpp::cluster bot(bot_token);
 
     bot.on_log(dpp::utility::cout_logger());
 
