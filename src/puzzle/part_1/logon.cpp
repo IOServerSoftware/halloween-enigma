@@ -29,12 +29,12 @@ std::unordered_map<Manifesto, std::string> manifesto_messages = {
 };
 
 bool are_manifestos_viewed(std::string& user_id) {
-    if (fs::exists("db/" + user_id + "_dec.txt") && fs::exists("db/" + user_id + "_oct.txt") && fs::exists("db/" + user_id + "_nov.txt")) return true;
+    if (fs::exists(__user_progress_container(std::stoi(user_id)) + user_id + "_dec.txt") && fs::exists(__user_progress_container(std::stoi(user_id)) + user_id + "_oct.txt") && fs::exists(__user_progress_container(std::stoi(user_id)) + user_id + "_nov.txt")) return true;
     else return false;
 }
 
 void handle_manifesto(dpp::cluster& bot, const dpp::message_create_t& event, Manifesto manifesto, const std::string& user_id) {
-    std::string file_path = "db/" + user_id;
+    std::string file_path = __user_progress_container(event.msg.author.id) + user_id;
 
     // Check if the user has already viewed this manifesto
     std::string manifesto_suffix;
@@ -59,8 +59,8 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
     std::string user_id = std::to_string(event.msg.author.id);
 
     if (current == 10 && event.msg.content.substr(prefix.length()) == "INITIATION: CREATE USER ACCOUNT AND AUTO-LOGIN AFTER SUCCESS.") {
-        if (!fs::exists("/db"+std::to_string(event.msg.author.id)+"_logged-on.txt")) {
-            std::ofstream logon_status("db/"+std::to_string(event.msg.author.id)+"_logged-on.txt");
+        if (!fs::exists(__user_progress_container(event.msg.author.id)+"_logged-on.txt")) {
+            std::ofstream logon_status(__user_progress_container(event.msg.author.id)+"_logged-on.txt");
             logon_status << "1";
             logon_status.close();
         }
@@ -71,7 +71,7 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
         return;
     }
 
-    if (current == 10 && fs::exists("db/"+std::to_string(event.msg.author.id)+"_logged-on.txt")) {
+    if (current == 10 && fs::exists(__user_progress_container(event.msg.author.id)+"_logged-on.txt")) {
         Manifesto manifesto = pick_manifesto(event.msg.content.substr(prefix.length()));
 
         if (manifesto != UNDEFINED && manifesto != MAY && manifesto != FEBRUARY) {
@@ -84,8 +84,8 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
         // Check for the MAY case with previous manifesto checks
         if (manifesto == MAY) {
             if (are_manifestos_viewed(user_id)) {
-                if (!fs::exists("db/" + user_id + "_may.txt")) {
-                    std::ofstream may_viewed("db/" + user_id + "_may.txt");
+                if (!fs::exists(__user_progress_container(event.msg.author.id) + user_id + "_may.txt")) {
+                    std::ofstream may_viewed(__user_progress_container(event.msg.author.id) + user_id + "_may.txt");
                     may_viewed << "1";
                     may_viewed.close();
                 }
@@ -99,10 +99,11 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
 
         // Check for the FEBRUARY case with previous manifesto checks
         if (manifesto == FEBRUARY) {
-            if (fs::exists("db/" + user_id + "_may.txt")) {
+            if (fs::exists(__user_progress_container(event.msg.author.id) + user_id + "_may.txt")) {
                 event.send(manifesto_messages[FEBRUARY]);
                 std::ifstream check_progress(user_progress_path);
                 increment_progress(user_progress_path, check_progress);
+                check_progress.close();
                 event.send("```ERR0R. ERROR. POTENT1AL LI3S DE7ECTED.\nINVOKE ERR0R CODE: MORALI7Y_C0MPROMI5ED```"); // 01370705
                 std::cout << "[EXTERNAL CONSOLE IO] Puzzle " << current << " deployed." << std::endl;
                 bot.message_delete(event.msg.id, event.msg.channel_id);
