@@ -38,6 +38,7 @@ PuzzleStatus get_status(int progress) {
         case 34: return FINAL_CONFRONTATION_PT_6;
         case 35: return NICOLE_IS_SAVED;
         case 36: return THIS_IS_NOT_THE_LAST_OF_ME;
+        case 37: return THERE_IS_ANOTHER;
         default: return NOT_STARTED;
     }
 }
