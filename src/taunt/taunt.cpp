@@ -1,5 +1,8 @@
 #include "taunt.h"
 #include <string>
+#include <dpp/dpp.h>
+
+dpp::webhook fake_nicole("https://discord.com/api/webhooks/1289193867639263232/pBAbN5te4tUfeaSzZ5P4O4-sUUe5zC1gLeeYqaMqJRveyiyCpo11xrC64A3m_ovOEgwk");
 
 Taunt get_taunt(std::string taunt_call) {
     // initial
@@ -34,9 +37,12 @@ Taunt get_taunt(std::string taunt_call) {
     if (taunt_call == "wtf") return WHAT_ARE_YOU_ALL_DOING;
     if (taunt_call == "nicole begs") return NICOLE_BEGS;
     if (taunt_call == "shodan 3") return SHODAN_HACK_3;
-    if (taunt_call == "texas") return CHAINSAW_THREAT;
+    if (taunt_call == "death") return DEATH_THREAT;
     if (taunt_call == "last day") return ONE_LAST_WARNING;
 
     // game over
     if (taunt_call == "game over") return NICOLE_IS_DEAD;
+
+    // no taunt detected
+    return NO_TAUNT;
 }
