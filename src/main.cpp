@@ -32,13 +32,9 @@ int main() {
         }
         
         if (content.rfind(taunt_prefix, 0) == 0) {
-            std::string command = content.substr(taunt_prefix.length());
-            std::istringstream iss(command);
-            std::string cmd;
-            iss >> cmd; // Extract command
-
+            std::string cmd = content.substr(taunt_prefix.length());
             std::cout << "[EXTERNAL CONSOLE IO] Taunt trigger detected." << std::endl;
-            handle_taunt_prompts(bot, event, cmd, iss);
+            handle_taunt_prompts(bot, event, cmd);
         }
     });
 
