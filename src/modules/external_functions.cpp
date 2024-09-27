@@ -13,6 +13,7 @@ int read_progress(std::string& user_progress_path) {
     std::string puzzle_progress;
     std::getline(current_progress, puzzle_progress);
     current_progress.close();
+    std::cout << "[EXTERNAL CONSOLE IO] Grabbed `" << puzzle_progress << "` from " << user_progress_path << std::endl;
     return std::stoi(puzzle_progress);
 }
 
@@ -23,14 +24,29 @@ void increment_progress(std::string& user_progress_path, std::ifstream& current_
     int count = std::stoi(puzzle_progress) + 1;
     std::ofstream new_progress(user_progress_path, std::ofstream::trunc);
     new_progress << count;
+    std::cout << "[EXTERNAL CONSOLE IO] Progress incremented on " << user_progress_path << " to " << count << "." << std::endl;
     new_progress.close();
 }
 
 // Separate function for handling prefix-based commands
 void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event, const std::string& cmd, std::istringstream& args) {
-    std::string user_progress_path = "db/" + std::to_string(event.msg.author.id) + ".progress";
-    PuzzleStatus puzzle_status = get_status(read_progress(user_progress_path));
-
+    std::string user_progress_path = "db/" + std::to_string(event.msg.author.id) + ".txt";
+    if (!fs::exists(user_progress_path)) {
+        std::cout << "[EXTERNAL CONSOLE IO] The game has started for " << event.msg.author.id << "." << std::endl;
+        std::ofstream progress_file(user_progress_path);
+        std::cout << "[EXTERNAL CONSOLE IO] File written on " << user_progress_path << std::endl;
+        progress_file << "1";
+        progress_file.close();
+    }
+    PuzzleStatus puzzle_status;
+    if (event.msg.is_dm()) {
+        puzzle_status = NOT_STARTED;
+        std::cout << "[EXTERNAL CONSOLE IO] DM detected. Ignoring..." << std::endl;
+        event.send("```You weren't supposed to talk to me here, were you?```");
+        return;
+    } else {
+        puzzle_status = get_status(read_progress(user_progress_path));
+    }
     switch (puzzle_status) {
         // part 1
         case START: puzzle_init(bot, event, user_progress_path); break;
@@ -46,6 +62,8 @@ void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event
 
         // part 2
         case LIES: lies(bot, event, user_progress_path); break;
+
+        /*
         case STALKER: stalker(bot, event, user_progress_path); break;
         case SIX_FEET: six_feet(bot, event, user_progress_path); break;
         case IN_THE_WOODS: in_the_woods(bot, event, user_progress_path); break;
@@ -77,7 +95,14 @@ void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event
         // Ending pieces
         case NICOLE_IS_SAVED: nicole_is_saved(bot, event, user_progress_path); break;
         case THIS_IS_NOT_THE_LAST_OF_ME: this_is_not_the_last_of_me(bot, event, user_progress_path); break;
+        */
 
-        default: break; // Handle any unexpected cases
+        default:
+            // Logon patch
+            if (fs::exists("db/"+std::to_string(event.msg.author.id)+"_logged-on.txt") && read_progress(user_progress_path) == 10) {
+                logon(bot, event, user_progress_path);
+                std::cout << "[EXTERNAL CONSOLE IO] Log-on status detected" << std::endl;
+            }
+        break; // Handle any unexpected cases
     }
 }
