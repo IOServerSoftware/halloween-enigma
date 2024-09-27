@@ -30,9 +30,14 @@ void increment_progress(std::string& user_progress_path, std::ifstream& current_
 
 // Separate function for handling prefix-based commands
 void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event, const std::string& cmd, std::istringstream& args) {
-    std::string user_progress_path = "db/" + std::to_string(event.msg.author.id) + ".txt";
+    std::string user_progress_path = __user_progress_container(event.msg.author.id) + std::to_string(event.msg.author.id) + ".txt";
     if (!fs::exists(user_progress_path)) {
         std::cout << "[EXTERNAL CONSOLE IO] The game has started for " << event.msg.author.id << "." << std::endl;
+        if (fs::create_directory(__user_progress_container(event.msg.author.id))) {
+            std::cout << "[EXTERNAL CONSOLE IO] Directory " << __user_progress_container(event.msg.author.id) << " created." << std::endl;
+        } else {
+            std::cout << "[EXTERNAL CONSOLE IO] Failed to create directory " << __user_progress_container(event.msg.author.id) << " because an error occurred." << std::endl;
+        }
         std::ofstream progress_file(user_progress_path);
         std::cout << "[EXTERNAL CONSOLE IO] File written on " << user_progress_path << std::endl;
         progress_file << "1";
@@ -95,6 +100,7 @@ void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event
         // Ending pieces
         case NICOLE_IS_SAVED: nicole_is_saved(bot, event, user_progress_path); break;
         case THIS_IS_NOT_THE_LAST_OF_ME: this_is_not_the_last_of_me(bot, event, user_progress_path); break;
+        case THERE_IS_ANOTHER: there_is_another(bot, event, user_progress_path); break;
         */
 
         default:
