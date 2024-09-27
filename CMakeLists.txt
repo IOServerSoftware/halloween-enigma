@@ -25,6 +25,18 @@ add_executable(enigma
 
     # part 1
     src/puzzle/part_1/start.cpp
+    src/puzzle/part_1/blackbird.cpp
+    src/puzzle/part_1/dead_eye.cpp
+    src/puzzle/part_1/nothing_is_what_it_seems.cpp
+    src/puzzle/part_1/hallucinations.cpp
+    src/puzzle/part_1/she_is_here.cpp
+    src/puzzle/part_1/gravestone.cpp
+    src/puzzle/part_1/suspicion.cpp
+    src/puzzle/part_1/forgotten.cpp
+    src/puzzle/part_1/logon.cpp
+
+    # part 2
+    src/puzzle/part_2/lies.cpp
     # add more pieces as needed...
 )
  

@@ -37,3 +37,4 @@ cfg/
 lib/
 build/
 .DS_Store
+res/
