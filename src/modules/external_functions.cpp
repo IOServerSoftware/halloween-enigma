@@ -1,5 +1,6 @@
 #include "external_functions.h"
 #include "../puzzle/puzzle.h"
+#include "../taunt/taunt.h"
 #include <dpp/dpp.h>
 #include <iostream>
 #include <fstream>
@@ -110,5 +111,14 @@ void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event
                 std::cout << "[EXTERNAL CONSOLE IO] Log-on status detected" << std::endl;
             }
         break; // Handle any unexpected cases
+    }
+}
+
+void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event, const std::string& cmd, std::istringstream& args) {
+    if (event.msg.is_dm()) {
+        std::cout << "[EXTERNAL CONSOLE IO] DM detected. Ignoring..." << std::endl;
+        event.send("```I mean, I can taunt you in here. But why would I?```");
+        return;
+    } else {
     }
 }
