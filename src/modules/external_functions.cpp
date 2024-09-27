@@ -1,6 +1,7 @@
 #include "external_functions.h"
 #include "../puzzle/puzzle.h"
 #include "../taunt/taunt.h"
+#include "../cfg/config.h"
 #include <dpp/dpp.h>
 #include <iostream>
 #include <fstream>
@@ -114,11 +115,25 @@ void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event
     }
 }
 
-void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event, const std::string& cmd, std::istringstream& args) {
+void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event, const std::string& cmd) {
     if (event.msg.is_dm()) {
         std::cout << "[EXTERNAL CONSOLE IO] DM detected. Ignoring..." << std::endl;
         event.send("```I mean, I can taunt you in here. But why would I?```");
         return;
-    } else {
+    } else if (event.msg.author.id == owner_id) {
+        Taunt taunt = get_taunt(cmd);
+        switch (taunt) {
+            // initial
+            case NICOLE_IS_KIDNAPPED: nicole_is_kidnapped(bot, event); break;
+            case PLAY_MY_GAME: play_my_game(bot, event); break;
+
+            // subsequent
+            case PLAYING_WITH_HER_LIFE: playing_with_her_life(bot, event); break;
+            case NICOLE_FAKE_MESSAGE_1: nicole_fake_message_1(bot, event); break;
+            case NICOLE_FAKE_MESSAGE_2: nicole_fake_message_2(bot, event); break;
+            case NICOLE_FAKE_MESSAGE_3: nicole_fake_message_3(bot, event); break;
+        }
+    } else if (event.msg.author.id != owner_id) {
+        bot.message_delete(event.msg.id, event.msg.channel_id);
     }
 }
