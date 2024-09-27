@@ -5,7 +5,7 @@
 #include "modules/external_functions.h"
 
 int main() {
-    dpp::cluster bot(bot_token);
+    dpp::cluster bot(bot_token, dpp::i_default_intents | dpp::i_message_content);
 
     bot.on_log(dpp::utility::cout_logger());
 
@@ -17,7 +17,7 @@ int main() {
 
     // Handle prefix-based commands
     bot.on_message_create([&bot](const dpp::message_create_t& event) {
-        std::string prefix = "> ";  // Define the prefix
+        std::cout << "[EXTERNAL CONSOLE IO] Message captured: `" << event.msg.content << "`" << std::endl;
         std::string content = event.msg.content;
 
         // Check if the message starts with the prefix
@@ -29,6 +29,7 @@ int main() {
             iss >> cmd; // Extract command
 
             // Pass command and arguments to the handler
+            std::cout << "[EXTERNAL CONSOLE IO] Prefix detected. Handling puzzle output..." << std::endl;
             handle_puzzle_prompts(bot, event, cmd, iss);
         }
     });
