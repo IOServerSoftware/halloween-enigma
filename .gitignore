@@ -38,3 +38,4 @@ lib/
 build/
 .DS_Store
 res/
+CMakeLists.txt.old

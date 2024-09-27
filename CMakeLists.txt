@@ -5,9 +5,6 @@ project(Enigma)
  
 # Add DPP as dependency
 add_subdirectory(lib/DPP)
-
-# Include puzzle directory so it picks up `puzzle.h`
-include_directories(src/puzzle)
  
 # Create an executable
 add_executable(enigma
@@ -47,6 +44,9 @@ add_executable(enigma
     src/taunt/subsequent/nicole_fake_message_1.cpp
     src/taunt/subsequent/nicole_fake_message_2.cpp
     src/taunt/subsequent/nicole_fake_message_3.cpp
+    src/taunt/subsequent/nicole_fake_message_4.cpp
+    src/taunt/subsequent/time_is_running_out.cpp
+    src/taunt/subsequent/nicole_is_not_going_anywhere.cpp
     # add more taunts as needed...
 )
  
