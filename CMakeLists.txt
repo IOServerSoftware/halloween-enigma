@@ -15,14 +15,12 @@ add_executable(enigma
     src/main.cpp
     src/modules/external_functions.cpp
     src/puzzle/puzzle.cpp
+    src/taunt/taunt.cpp
 
     # config
     src/cfg/config.cpp
     
     # puzzle pieces
-    # template below
-    # src/puzzle/part_#/*.cpp
-
     # part 1
     src/puzzle/part_1/start.cpp
     src/puzzle/part_1/blackbird.cpp
@@ -38,6 +36,18 @@ add_executable(enigma
     # part 2
     src/puzzle/part_2/lies.cpp
     # add more pieces as needed...
+
+    # taunts
+    # initial
+    src/taunt/initial/nicole_is_kidnapped.cpp
+    src/taunt/initial/play_my_game.cpp
+
+    # subsequent
+    src/taunt/subsequent/playing_with_her_life.cpp
+    src/taunt/subsequent/nicole_fake_message_1.cpp
+    src/taunt/subsequent/nicole_fake_message_2.cpp
+    src/taunt/subsequent/nicole_fake_message_3.cpp
+    # add more taunts as needed...
 )
  
 # Linking libraries
