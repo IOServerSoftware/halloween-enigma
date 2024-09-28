@@ -9,7 +9,6 @@
 
 namespace fs = std::filesystem;
 
-
 enum Manifesto { DECEMBER, OCTOBER, NOVEMBER, MAY, FEBRUARY, UNDEFINED };
 Manifesto pick_manifesto(const std::string& message) {
     if (message == "december") return DECEMBER;
