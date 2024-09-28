@@ -132,6 +132,19 @@ void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event,
             case NICOLE_FAKE_MESSAGE_1: nicole_fake_message_1(bot, event); break;
             case NICOLE_FAKE_MESSAGE_2: nicole_fake_message_2(bot, event); break;
             case NICOLE_FAKE_MESSAGE_3: nicole_fake_message_3(bot, event); break;
+            case NICOLE_FAKE_MESSAGE_4: nicole_fake_message_4(bot, event); break;
+            case TIME_IS_RUNNING_OUT: time_is_running_out(bot, event); break;
+            case NICOLE_IS_NOT_GOING_ANYWHERE: nicole_is_not_going_anywhere(bot, event); break;
+            case NICOLE_THREAT: nicole_threat(bot, event); break;
+            case NICOLE_IN_PAIN: nicole_in_pain(bot, event); break;
+            case NICOLE_PLEADING: nicole_pleading(bot, event); break;
+            /*
+            case SUSPICIOUS_ACTS: nicole_is_not_going_anywhere(bot, event); break;
+            case GIVE_HER_UP: give_her_up(bot, event); break;
+            case SHE_IS_DEAD_OR_IS_SHE: she_is_dead_or_is_she(bot, event); break;
+            case WHAT_ARE_YOU_WAITING_FOR: what_are_you_waiting_for(bot, event); break;
+            */
+
         }
     } else if (event.msg.author.id != owner_id) {
         bot.message_delete(event.msg.id, event.msg.channel_id);
