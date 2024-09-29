@@ -3,7 +3,6 @@
 #define puzzle_h
 
 #include <dpp/dpp.h>
-
 #define __user_progress_container(x) "db/"+ std::to_string(x) + "/"
 
 // This structure is in order

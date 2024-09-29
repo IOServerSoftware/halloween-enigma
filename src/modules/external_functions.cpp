@@ -138,12 +138,10 @@ void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event,
             case NICOLE_THREAT: nicole_threat(bot, event); break;
             case NICOLE_IN_PAIN: nicole_in_pain(bot, event); break;
             case NICOLE_PLEADING: nicole_pleading(bot, event); break;
-            /*
-            case SUSPICIOUS_ACTS: nicole_is_not_going_anywhere(bot, event); break;
+            case SUSPICIOUS_ACTS: suspicious_acts(bot, event); break;
             case GIVE_HER_UP: give_her_up(bot, event); break;
             case SHE_IS_DEAD_OR_IS_SHE: she_is_dead_or_is_she(bot, event); break;
-            case WHAT_ARE_YOU_WAITING_FOR: what_are_you_waiting_for(bot, event); break;
-            */
+            //case WHAT_ARE_YOU_WAITING_FOR: what_are_you_waiting_for(bot, event); break;
 
         }
     } else if (event.msg.author.id != owner_id) {
