@@ -16,7 +16,7 @@ enum PuzzleStatus {
     // climax. a 24 hour (one day) timer will be triggered for everyone at part one.
     FINAL_CONFRONTATION_PT_1, FINAL_CONFRONTATION_PT_2, FINAL_CONFRONTATION_PT_3, FINAL_CONFRONTATION_PT_4, FINAL_CONFRONTATION_PT_5, FINAL_CONFRONTATION_PT_6,
     // ending!
-    NICOLE_IS_SAVED, THIS_IS_NOT_THE_LAST_OF_ME, THERE_IS_ANOTHER,
+    NICOLE_IS_SAVED,
 
     // lol they haven't even started
     NOT_STARTED
@@ -66,9 +66,7 @@ void final_confrontation_pt_4(dpp::cluster& bot, const dpp::message_create_t& ev
 void final_confrontation_pt_5(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
 void final_confrontation_pt_6(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
 
-// ending pieces
+// ending piece
 void nicole_is_saved(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
-void this_is_not_the_last_of_me(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
-void there_is_another(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
 
 #endif
