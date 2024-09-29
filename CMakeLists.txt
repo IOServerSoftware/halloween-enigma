@@ -32,38 +32,37 @@ add_executable(enigma
 
     # part 2
     src/puzzle/part_2/lies.cpp
-    # src/puzzle/part_2/stalker.cpp
+    src/puzzle/part_2/stalker.cpp
     src/puzzle/part_2/six_feet.cpp
     src/puzzle/part_2/mosaic_prevalence.cpp
     src/puzzle/part_2/there_is_nothing_for_me_to_want.cpp
-    # src/puzzle/part_2/red_snow.cpp
-    # src/puzzle/part_2/someone_is_waiting.cpp
-    # src/puzzle/part_2/no_sense_of_self.cpp
-    # src/puzzle/part_2/you_do_not_make_sense.cpp
-    # src/puzzle/part_2/i_found_her_question_mark.cpp
+    src/puzzle/part_2/red_snow.cpp
+    src/puzzle/part_2/someone_is_waiting.cpp
+    src/puzzle/part_2/no_sense_of_self.cpp
+    src/puzzle/part_2/you_do_not_make_sense.cpp
+    src/puzzle/part_2/i_found_her_question_mark.cpp
 
     # part 3
-    # src/puzzle/part_3/who_is_she.cpp
-    # src/puzzle/part_3/what_are_you.cpp
-    # src/puzzle/part_3/where_is_she.cpp
-    # src/puzzle/part_3/why_would_you_do_this.cpp
-    # src/puzzle/part_3/you_have_got_to_stop.cpp
-    # src/puzzle/part_3/do_not_let_him_escape.cpp
-    # src/puzzle/part_3/nicole_dies.cpp
-    # src/puzzle/part_3/one_last_puzzle.cpp
+    src/puzzle/part_3/who_is_she.cpp
+    src/puzzle/part_3/what_are_you.cpp
+    src/puzzle/part_3/where_is_she.cpp
+    src/puzzle/part_3/why_would_you_do_this.cpp
+    src/puzzle/part_3/you_have_got_to_stop.cpp
+    src/puzzle/part_3/do_not_let_him_escape.cpp
+    src/puzzle/part_3/nicole_dies.cpp
+    src/puzzle/part_3/one_last_puzzle.cpp
 
     # climax (part 4)
-    # src/puzzle/part_4/final_confrontation_pt_1.cpp
-    # src/puzzle/part_4/final_confrontation_pt_2.cpp
-    # src/puzzle/part_4/final_confrontation_pt_3.cpp
-    # src/puzzle/part_4/final_confrontation_pt_4.cpp
-    # src/puzzle/part_4/final_confrontation_pt_5.cpp
-    # src/puzzle/part_4/final_confrontation_pt_6.cpp
+    src/puzzle/part_4/climax.cpp # defines ciphers for below files
+    src/puzzle/part_4/final_confrontation_pt_1.cpp
+    src/puzzle/part_4/final_confrontation_pt_2.cpp
+    src/puzzle/part_4/final_confrontation_pt_3.cpp
+    src/puzzle/part_4/final_confrontation_pt_4.cpp
+    src/puzzle/part_4/final_confrontation_pt_5.cpp
+    src/puzzle/part_4/final_confrontation_pt_6.cpp
 
     # ending (part 5)
-    # src/puzzle/part_5/nicole_is_saved.cpp
-    # src/puzzle/part_5/this_is_not_the_last_of_me.cpp
-    # src/puzzle/part_5/there_is_another.cpp
+    src/puzzle/part_5/nicole_is_saved.cpp
 
     # add more pieces as needed... and uncomment those that are finished
 
@@ -89,11 +88,11 @@ add_executable(enigma
     src/taunt/subsequent/what_are_you_waiting_for.cpp
     src/taunt/subsequent/halfway_through.cpp
     src/taunt/subsequent/more_pain.cpp
-    # src/taunt/subsequent/power_drill_threat.cpp
-    # src/taunt/subsequent/power_drill_on_bestie.cpp
-    # src/taunt/subsequent/nicole_real_relay.cpp
-    # src/taunt/subsequent/she_needs_help.cpp
-    # src/taunt/subsequent/shodan_hack_1.cpp
+    src/taunt/subsequent/power_drill_threat.cpp
+    src/taunt/subsequent/power_drill_on_bestie.cpp
+    src/taunt/subsequent/nicole_real_relay.cpp
+    src/taunt/subsequent/she_needs_help.cpp
+    src/taunt/subsequent/shodan_hack_1.cpp
     # src/taunt/subsequent/nicole_screaming.cpp
     # src/taunt/subsequent/shodan_hack_2.cpp
     # src/taunt/subsequent/almost_there.cpp
