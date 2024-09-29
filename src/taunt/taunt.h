@@ -15,9 +15,8 @@ enum Taunt {
     // subsequent taunts every day. there should be 30 of those.
     PLAYING_WITH_HER_LIFE, NICOLE_FAKE_MESSAGE_1, NICOLE_FAKE_MESSAGE_2, NICOLE_FAKE_MESSAGE_3, NICOLE_FAKE_MESSAGE_4,
     TIME_IS_RUNNING_OUT, NICOLE_IS_NOT_GOING_ANYWHERE, NICOLE_THREAT, NICOLE_IN_PAIN, NICOLE_PLEADING, SUSPICIOUS_ACTS,
-    GIVE_HER_UP, SHE_IS_DEAD_OR_IS_SHE, WHAT_ARE_YOU_WAITING_FOR, HALFWAY_THROUGH, MORE_PAIN, POWER_DRILL_THREAT, POWER_DRILL_ON_NICOLE,
-    NICOLE_REAL_RELAY, SHE_NEEDS_HELP, SHODAN_HACK_1, NICOLE_SCREAMING, SHODAN_HACK_2, ALMOST_THERE, WHAT_ARE_YOU_ALL_DOING,
-    NICOLE_BEGS, SHODAN_HACK_3, DEATH_THREAT, ONE_LAST_WARNING,
+    GIVE_HER_UP, SHE_IS_DEAD_OR_IS_SHE, WHAT_ARE_YOU_WAITING_FOR, HALFWAY_THROUGH, MORE_PAIN, POWER_DRILL_THREAT, POWER_DRILL_ON_BESTIE, NICOLE_REAL_RELAY, SHE_NEEDS_HELP, SHODAN_HACK_1, NICOLE_SCREAMING, SHODAN_HACK_2,
+    ALMOST_THERE, WHAT_ARE_YOU_ALL_DOING, NICOLE_BEGS, SHODAN_HACK_3, DEATH_THREAT, ONE_LAST_WARNING,
     // game over taunt.
     NICOLE_IS_DEAD,
     // there is no taunt.
@@ -42,11 +41,14 @@ void nicole_pleading(dpp::cluster& bot, const dpp::message_create_t& event);
 void suspicious_acts(dpp::cluster& bot, const dpp::message_create_t& event);
 void give_her_up(dpp::cluster& bot, const dpp::message_create_t& event);
 void she_is_dead_or_is_she(dpp::cluster& bot, const dpp::message_create_t& event);
+
+// move this pointer downwards if you're done with a taunt.
+// anything below is to be implemented.
 void what_are_you_waiting_for(dpp::cluster& bot, const dpp::message_create_t& event);
 void halfway_through(dpp::cluster& bot, const dpp::message_create_t& event);
 void more_pain(dpp::cluster& bot, const dpp::message_create_t& event);
 void power_drill_threat(dpp::cluster& bot, const dpp::message_create_t& event);
-void power_drill_on_nicole(dpp::cluster& bot, const dpp::message_create_t& event);
+void power_drill_on_bestie(dpp::cluster& bot, const dpp::message_create_t& event);
 void nicole_real_relay(dpp::cluster& bot, const dpp::message_create_t& event);
 void she_needs_help(dpp::cluster& bot, const dpp::message_create_t& event);
 void shodan_hack_1(dpp::cluster& bot, const dpp::message_create_t& event);
