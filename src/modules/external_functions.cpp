@@ -19,6 +19,13 @@ int read_progress(std::string& user_progress_path) {
     return std::stoi(puzzle_progress);
 }
 
+void reset_progress(std::string& user_progress_path) {
+    std::ofstream reset_prog(user_progress_path, std::ofstream::trunc);
+    reset_prog << "0";
+    std::cout << "[EXTERNAL CONSOLE IO] Progress reset on " << user_progress_path << " to 0. Nicole has died on their end." << std::endl;
+    reset_prog.close();
+}
+
 void increment_progress(std::string& user_progress_path, std::ifstream& current_progress) {
     std::string puzzle_progress;
     std::getline(current_progress, puzzle_progress);
@@ -69,15 +76,10 @@ void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event
 
         // part 2
         case LIES: lies(bot, event, user_progress_path); break;
-
-        // case STALKER: stalker(bot, event, user_progress_path); break;
-        // above is a holdover until completed.
-
+        case STALKER: stalker(bot, event, user_progress_path); break;
         case SIX_FEET: six_feet(bot, event, user_progress_path); break;
         case MOSAIC_PREVALENCE: mosaic_prevalence(bot, event, user_progress_path); break;
         case THERE_IS_NOTHING_FOR_ME_TO_WANT: there_is_nothing_for_me_to_want(bot, event, user_progress_path); break;
-        
-        /*
         case RED_SNOW: red_snow(bot, event, user_progress_path); break;
         case SOMEONE_IS_WAITING: someone_is_waiting(bot, event, user_progress_path); break;
         case NO_SENSE_OF_SELF: no_sense_of_self(bot, event, user_progress_path); break;
@@ -104,9 +106,6 @@ void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event
 
         // Ending pieces
         case NICOLE_IS_SAVED: nicole_is_saved(bot, event, user_progress_path); break;
-        case THIS_IS_NOT_THE_LAST_OF_ME: this_is_not_the_last_of_me(bot, event, user_progress_path); break;
-        case THERE_IS_ANOTHER: there_is_another(bot, event, user_progress_path); break;
-        */
 
         default:
             // Logon patch
@@ -147,8 +146,8 @@ void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event,
             case WHAT_ARE_YOU_WAITING_FOR: what_are_you_waiting_for(bot, event); break;
             case HALFWAY_THROUGH: halfway_through(bot, event); break;
             case MORE_PAIN: more_pain(bot, event); break;
-            // case POWER_DRILL_THREAT: power_drill_threat(bot, event); break;
-            // case POWER_DRILL_ON_BESTIE: power_drill_on_bestie(bot, event); break;
+            case POWER_DRILL_THREAT: power_drill_threat(bot, event); break;
+            case POWER_DRILL_ON_BESTIE: power_drill_on_bestie(bot, event); break;
             // case NICOLE_REAL_RELAY: nicole_real_relay(bot, event); break;
             // case SHE_NEEDS_HELP: she_needs_help(bot, event); break;
             // case SHODAN_HACK_1: shodan_hack_1(bot, event); break;

@@ -10,5 +10,5 @@ void play_my_game(dpp::cluster& bot, const dpp::message_create_t& event) {
     std::this_thread::sleep_for(std::chrono::seconds(3));
     event.send("```I must warn you, though. If you want to play my game, please know it is not for the faint of heart. What do you call these? Oh, yeah. 'Trigger warnings'. Yeah. You might get more terrified trying to save her.\n```");
     std::this_thread::sleep_for(std::chrono::seconds(3));
-    event.send("There is a reward to the first one who plays through all of my game successfully.\nThese are:\n- 100,000 Arcane XP\n- 25,000 stars to spend with Mimu\n- A special role to commemorate your victory\n\nThose who participate will also get rewarded, don't worry.\nYou will get:\n- 10,000 Arcane XP\n- 2,500 stars to spend with Mimu```\n\nThat is, if you *actually* want to play the game.");
+    event.send("```There is a reward to the first one who plays through all of my game successfully.\nThese are:\n- 100,000 Arcane XP\n- 25,000 stars to spend with Mimu\n- A special role to commemorate your victory\n\nThose who participate will also get rewarded, don't worry.\nYou will get:\n- 10,000 Arcane XP\n- 2,500 stars to spend with Mimu\n\nThat is, if you *actually* want to play the game.```");
 }

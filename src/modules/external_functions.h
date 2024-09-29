@@ -8,6 +8,7 @@
 void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event, const std::string& cmd, std::istringstream& args);
 void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event, const std::string& cmd);
 void increment_progress(std::string& user_progress_path, std::ifstream& current_progress);
+void reset_progress(std::string& user_progress_path);
 int read_progress(std::string& user_progress_path);
 
 #endif
