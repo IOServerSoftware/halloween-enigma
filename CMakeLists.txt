@@ -33,9 +33,9 @@ add_executable(enigma
     # part 2
     src/puzzle/part_2/lies.cpp
     # src/puzzle/part_2/stalker.cpp
-    # src/puzzle/part_2/six_feet.cpp
-    # src/puzzle/part_2/in_the_woods.cpp
-    # src/puzzle/part_2/there_is_nothing_for_me_to_want.cpp
+    src/puzzle/part_2/six_feet.cpp
+    src/puzzle/part_2/mosaic_prevalence.cpp
+    src/puzzle/part_2/there_is_nothing_for_me_to_want.cpp
     # src/puzzle/part_2/red_snow.cpp
     # src/puzzle/part_2/someone_is_waiting.cpp
     # src/puzzle/part_2/no_sense_of_self.cpp
@@ -88,7 +88,7 @@ add_executable(enigma
     src/taunt/subsequent/she_is_dead_or_is_she.cpp
     src/taunt/subsequent/what_are_you_waiting_for.cpp
     src/taunt/subsequent/halfway_through.cpp
-    # src/taunt/subsequent/more_pain.cpp
+    src/taunt/subsequent/more_pain.cpp
     # src/taunt/subsequent/power_drill_threat.cpp
     # src/taunt/subsequent/power_drill_on_bestie.cpp
     # src/taunt/subsequent/nicole_real_relay.cpp

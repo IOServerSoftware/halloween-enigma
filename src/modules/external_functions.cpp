@@ -70,11 +70,14 @@ void handle_puzzle_prompts(dpp::cluster& bot, const dpp::message_create_t& event
         // part 2
         case LIES: lies(bot, event, user_progress_path); break;
 
-        /*
-        case STALKER: stalker(bot, event, user_progress_path); break;
+        // case STALKER: stalker(bot, event, user_progress_path); break;
+        // above is a holdover until completed.
+
         case SIX_FEET: six_feet(bot, event, user_progress_path); break;
-        case IN_THE_WOODS: in_the_woods(bot, event, user_progress_path); break;
+        case MOSAIC_PREVALENCE: mosaic_prevalence(bot, event, user_progress_path); break;
         case THERE_IS_NOTHING_FOR_ME_TO_WANT: there_is_nothing_for_me_to_want(bot, event, user_progress_path); break;
+        
+        /*
         case RED_SNOW: red_snow(bot, event, user_progress_path); break;
         case SOMEONE_IS_WAITING: someone_is_waiting(bot, event, user_progress_path); break;
         case NO_SENSE_OF_SELF: no_sense_of_self(bot, event, user_progress_path); break;
@@ -141,7 +144,23 @@ void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event,
             case SUSPICIOUS_ACTS: suspicious_acts(bot, event); break;
             case GIVE_HER_UP: give_her_up(bot, event); break;
             case SHE_IS_DEAD_OR_IS_SHE: she_is_dead_or_is_she(bot, event); break;
-            //case WHAT_ARE_YOU_WAITING_FOR: what_are_you_waiting_for(bot, event); break;
+            case WHAT_ARE_YOU_WAITING_FOR: what_are_you_waiting_for(bot, event); break;
+            case HALFWAY_THROUGH: halfway_through(bot, event); break;
+            case MORE_PAIN: more_pain(bot, event); break;
+            // case POWER_DRILL_THREAT: power_drill_threat(bot, event); break;
+            // case POWER_DRILL_ON_BESTIE: power_drill_on_bestie(bot, event); break;
+            // case NICOLE_REAL_RELAY: nicole_real_relay(bot, event); break;
+            // case SHE_NEEDS_HELP: she_needs_help(bot, event); break;
+            // case SHODAN_HACK_1: shodan_hack_1(bot, event); break;
+            // case NICOLE_SCREAMING: nicole_screaming(bot, event); break;
+            // case SHODAN_HACK_2: shodan_hack_2(bot, event); break;
+            // case ALMOST_THERE: almost_there(bot, event); break;
+            // case WHAT_ARE_YOU_ALL_DOING: what_are_you_all_doing(bot, event); break;
+            // case NICOLE_BEGS: nicole_begs(bot, event); break;
+            // case SHODAN_HACK_3: shodan_hack_3(bot, event); break;
+            // case DEATH_THREAT: death_threat(bot, event); break;
+            // case ONE_LAST_WARNING: one_last_warning(bot, event); break;
+            // case NICOLE_IS_DEAD: nicole_is_dead(bot, event); break;
 
         }
     } else if (event.msg.author.id != owner_id) {

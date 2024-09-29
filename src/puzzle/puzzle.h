@@ -10,7 +10,7 @@ enum PuzzleStatus {
     // part 1
     START, BLACKBIRD, DEAD_EYE, NOTHING_IS_WHAT_IT_SEEMS, HALLUCINATIONS, SHE_IS_HERE, GRAVESTONE, SUSPICION, FORGOTTEN, LOGON,
     // part 2
-    LIES, STALKER, SIX_FEET, IN_THE_WOODS, THERE_IS_NOTHING_FOR_ME_TO_WANT, RED_SNOW, SOMEONE_IS_WAITING, NO_SENSE_OF_SELF, YOU_DO_NOT_MAKE_SENSE, I_FOUND_HER_QUESTION_MARK,
+    LIES, STALKER, SIX_FEET, MOSAIC_PREVALENCE, THERE_IS_NOTHING_FOR_ME_TO_WANT, RED_SNOW, SOMEONE_IS_WAITING, NO_SENSE_OF_SELF, YOU_DO_NOT_MAKE_SENSE, I_FOUND_HER_QUESTION_MARK,
     // part 3
     WHO_IS_SHE, WHAT_ARE_YOU, WHERE_IS_SHE, WHY_WOULD_YOU_DO_THIS, YOU_HAVE_GOT_TO_STOP, DO_NOT_LET_HIM_ESCAPE, NICOLE_DIES, ONE_LAST_PUZZLE,
     // climax. a 24 hour (one day) timer will be triggered for everyone at part one.
@@ -40,7 +40,7 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
 void lies(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
 void stalker(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
 void six_feet(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
-void in_the_woods(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
+void mosaic_prevalence(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
 void there_is_nothing_for_me_to_want(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
 void red_snow(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);
 void someone_is_waiting(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path);

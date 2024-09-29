@@ -15,7 +15,7 @@ PuzzleStatus get_status(int progress) {
         case 11: return LIES;
         case 12: return STALKER;
         case 13: return SIX_FEET;
-        case 14: return IN_THE_WOODS;
+        case 14: return MOSAIC_PREVALENCE;
         case 15: return THERE_IS_NOTHING_FOR_ME_TO_WANT;
         case 16: return RED_SNOW;
         case 17: return SOMEONE_IS_WAITING;
