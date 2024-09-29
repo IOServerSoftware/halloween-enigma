@@ -1,7 +1,5 @@
 #include "../taunt.h"
 #include "../../cfg/config.h"
-#include <thread>
-#include <chrono>
 #include <dpp/dpp.h>
 #include <iostream>
 

@@ -2,6 +2,8 @@
 #include "../../cfg/config.h"
 #include <dpp/dpp.h>
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 void what_are_you_waiting_for(dpp::cluster& bot, const dpp::message_create_t& event) {
     std::cout << "[EXTERNAL CONSOLE IO] Taunt `" << event.msg.content.substr(taunt_prefix.length()) << "` deployed." << std::endl;
