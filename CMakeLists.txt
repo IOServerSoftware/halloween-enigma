@@ -93,15 +93,15 @@ add_executable(enigma
     src/taunt/subsequent/nicole_real_relay.cpp
     src/taunt/subsequent/she_needs_help.cpp
     src/taunt/subsequent/shodan_hack_1.cpp
-    # src/taunt/subsequent/nicole_screaming.cpp
-    # src/taunt/subsequent/shodan_hack_2.cpp
-    # src/taunt/subsequent/almost_there.cpp
-    # src/taunt/subsequent/what_are_you_all_doing.cpp
-    # src/taunt/subsequent/nicole_begs.cpp
-    # src/taunt/subsequent/shodan_hack_3.cpp
-    # src/taunt/subsequent/death_threat.cpp
-    # src/taunt/subsequent/one_last_warning.cpp
-    # src/taunt/subsequent/nicole_is_dead.cpp
+    src/taunt/subsequent/nicole_screaming.cpp
+    src/taunt/subsequent/shodan_hack_2.cpp
+    src/taunt/subsequent/almost_there.cpp
+    src/taunt/subsequent/what_are_you_all_doing.cpp
+    src/taunt/subsequent/nicole_begs.cpp
+    src/taunt/subsequent/shodan_hack_3.cpp
+    src/taunt/subsequent/death_threat.cpp
+    src/taunt/subsequent/one_last_warning.cpp
+    src/taunt/subsequent/nicole_is_dead.cpp
 
     # add more taunts as needed... and uncomment those that are finished
 )

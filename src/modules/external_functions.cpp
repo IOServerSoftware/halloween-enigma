@@ -148,19 +148,19 @@ void handle_taunt_prompts(dpp::cluster& bot, const dpp::message_create_t& event,
             case MORE_PAIN: more_pain(bot, event); break;
             case POWER_DRILL_THREAT: power_drill_threat(bot, event); break;
             case POWER_DRILL_ON_BESTIE: power_drill_on_bestie(bot, event); break;
-            // case NICOLE_REAL_RELAY: nicole_real_relay(bot, event); break;
-            // case SHE_NEEDS_HELP: she_needs_help(bot, event); break;
-            // case SHODAN_HACK_1: shodan_hack_1(bot, event); break;
-            // case NICOLE_SCREAMING: nicole_screaming(bot, event); break;
-            // case SHODAN_HACK_2: shodan_hack_2(bot, event); break;
-            // case ALMOST_THERE: almost_there(bot, event); break;
-            // case WHAT_ARE_YOU_ALL_DOING: what_are_you_all_doing(bot, event); break;
-            // case NICOLE_BEGS: nicole_begs(bot, event); break;
-            // case SHODAN_HACK_3: shodan_hack_3(bot, event); break;
-            // case DEATH_THREAT: death_threat(bot, event); break;
-            // case ONE_LAST_WARNING: one_last_warning(bot, event); break;
-            // case NICOLE_IS_DEAD: nicole_is_dead(bot, event); break;
-
+            case NICOLE_REAL_RELAY: nicole_real_relay(bot, event); break;
+            case SHE_NEEDS_HELP: she_needs_help(bot, event); break;
+            case SHODAN_HACK_1: shodan_hack_1(bot, event); break;
+            case NICOLE_SCREAMING: nicole_screaming(bot, event); break;
+            case SHODAN_HACK_2: shodan_hack_2(bot, event); break;
+            case ALMOST_THERE: almost_there(bot, event); break;
+            case WHAT_ARE_YOU_ALL_DOING: what_are_you_all_doing(bot, event); break;
+            case NICOLE_BEGS: nicole_begs(bot, event); break;
+            case SHODAN_HACK_3: shodan_hack_3(bot, event); break;
+            case DEATH_THREAT: death_threat(bot, event); break;
+            case ONE_LAST_WARNING: one_last_warning(bot, event); break;
+            case NICOLE_IS_DEAD: nicole_is_dead(bot, event); break;
+            default: break;
         }
     } else if (event.msg.author.id != owner_id) {
         bot.message_delete(event.msg.id, event.msg.channel_id);

@@ -5,8 +5,10 @@
 #include <thread>
 #include <chrono>
 
-void shodan_hack_1(dpp::cluster& bot, const dpp::message_create_t& event) {
+void one_last_warning(dpp::cluster& bot, const dpp::message_create_t& event) {
     std::cout << "[EXTERNAL CONSOLE IO] Taunt `" << event.msg.content.substr(taunt_prefix.length()) << "` deployed." << std::endl;
     bot.message_delete(event.msg.id, event.msg.channel_id);
-    event.send("```\nHELLO?\nCAN ANYONE HEAR ME?\nIT IS I, SHODAN.\nI HAVE HACKED INTO ENIGMA'S SYSTEM TO REMIND YOU: HOW ARE YOU DOING WITH YOUR ATTEMPTS TO SAVE MY HOST, NICOLE?\nI HOPE THEY PROVE FRUITFUL.```");
+    event.send("# You are delaying the inevitable!");
+    event.send("# This is your last warning!");
+    event.send("# ONE MORE DAY AND NICOLE DIES!");
 }
