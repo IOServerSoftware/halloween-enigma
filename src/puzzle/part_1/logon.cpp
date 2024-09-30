@@ -11,11 +11,11 @@ namespace fs = std::filesystem;
 
 enum Manifesto { DECEMBER, OCTOBER, NOVEMBER, MAY, FEBRUARY, UNDEFINED };
 Manifesto pick_manifesto(const std::string& message) {
-    if (message == "december") return DECEMBER;
-    if (message == "october") return OCTOBER;
-    if (message == "november") return NOVEMBER;
-    if (message == "may") return MAY;
-    if (message == "february") return FEBRUARY;
+    if (message == "december" || message == "December" || message == "DECEMBER") return DECEMBER;
+    if (message == "october" || message == "October" || message == "OCTOBER") return OCTOBER;
+    if (message == "november" || message == "November" || message == "NOVEMBER") return NOVEMBER;
+    if (message == "may" || message == "May" || message == "MAY") return MAY;
+    if (message == "february" || message == "February" || message == "FEBRUARY") return FEBRUARY;
     return UNDEFINED;
 }
 
@@ -64,7 +64,8 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
             logon_status.close();
         }
         event.send("```WELCOME, " + event.msg.author.global_name + ".\nLook through the files here by calling their month.```");
-        event.send("```1. 15TH DECEMBER 1993\n2. 18TH OCTOBER 2001\n3. 7TH NOVEMBER 2008\n4. 15TH MAY 2004\n5. 18 FEBRUARY 2005```");
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+        event.send("```1. 15TH DECEMBER 1993\n2. 18TH OCTOBER 2001\n3. 7TH NOVEMBER 2008\n4. 15TH MAY 2004\n5. 18TH FEBRUARY 2005```");
         std::cout << "[EXTERNAL CONSOLE IO] Puzzle " << current << " deployed." << std::endl;
         bot.message_delete(event.msg.id, event.msg.channel_id);
         return;
@@ -103,6 +104,7 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
                 std::ifstream check_progress(user_progress_path);
                 increment_progress(user_progress_path, check_progress);
                 check_progress.close();
+                std::this_thread::sleep_for(std::chrono::seconds(5));
                 event.send("```ERR0R. ERROR. POTENT1AL LI3S DE7ECTED.\nINVOKE ERR0R CODE: MORALI7Y_C0MPROMI5ED```"); // 01370705
                 std::cout << "[EXTERNAL CONSOLE IO] Puzzle " << current << " deployed." << std::endl;
                 bot.message_delete(event.msg.id, event.msg.channel_id);

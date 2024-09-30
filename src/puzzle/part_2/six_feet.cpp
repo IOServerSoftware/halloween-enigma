@@ -36,6 +36,7 @@ void six_feet(dpp::cluster& bot, const dpp::message_create_t& event, std::string
             std::ifstream check_progress(user_progress_path);
             increment_progress(user_progress_path, check_progress);
             event.send("https://cdn.discordapp.com/attachments/1288880397794672781/1289782487345664062/funeral_box.jpg?ex=66fa130b&is=66f8c18b&hm=1ed258b896674ea910fdff509f07d05b7ad5a30db4e499da87bfbd8bfb5702fe&");
+            std::this_thread::sleep_for(std::chrono::seconds(5));
             event.send("```What could be inside...?```");
         }
     }

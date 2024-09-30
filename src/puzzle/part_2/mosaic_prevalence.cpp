@@ -11,6 +11,12 @@
 
 namespace fs = std::filesystem;
 
+bool are_hexes(const dpp::message_create_t& event) {
+    if (event.msg.content.substr(prefix.length()) == "456360 506d6b 0e0407 33050d 131413 410311 597270 52081b 673c2f 751632") return true;
+    if (event.msg.content.substr(prefix.length()) == "#456360 #506d6b #0e0407 #33050d #131413 #410311 #597270 #52081b #673c2f #751632") return true;
+    return false;
+}
+
 void mosaic_prevalence(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path) {
     int current = read_progress(user_progress_path);
     if (current == 14 && event.msg.content.substr(prefix.length()) == "treasure" && !fs::exists(__user_progress_container(event.msg.author.id)+"_mosaic.txt")) {
@@ -22,7 +28,7 @@ void mosaic_prevalence(dpp::cluster& bot, const dpp::message_create_t& event, st
         event.send("```The numbers, "+event.msg.author.global_name+".\nWhat are they? Give me ten.```");
         std::cout << "[EXTERNAL CONSOLE IO] Puzzle " << current << " deployed." << std::endl;
         bot.message_delete(event.msg.id, event.msg.channel_id);
-    } else if (current == 14 && event.msg.content.substr(prefix.length()) == "456360 506d6b 0e0407 33050d 131413 410311 597270 52081b 673c2f 751632" && fs::exists(__user_progress_container(event.msg.author.id)+"_mosaic.txt")) {
+    } else if (current == 14 && are_hexes(event) && fs::exists(__user_progress_container(event.msg.author.id)+"_mosaic.txt")) {
         bot.message_delete(event.msg.id, event.msg.channel_id);
         // Wait for this to finish before continuing on to the next puzzle piece
         std::this_thread::sleep_for(std::chrono::seconds(3));

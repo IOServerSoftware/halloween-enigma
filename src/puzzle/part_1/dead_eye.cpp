@@ -8,9 +8,16 @@
 
 namespace fs = std::filesystem;
 
+bool asked_for_nicole(const dpp::message_create_t& event) {
+    if (event.msg.content.substr(prefix.length()) == "nicole") return true;
+    if (event.msg.content.substr(prefix.length()) == "Nicole") return true;
+    if (event.msg.content.substr(prefix.length()) == "NICOLE") return true;
+    return false;
+}
+
 void dead_eye(dpp::cluster& bot, const dpp::message_create_t& event, std::string& user_progress_path) {
     int current = read_progress(user_progress_path);
-    if (current == 3 && event.msg.content.substr(prefix.length()) == "nicole") {
+    if (current == 3 && asked_for_nicole(event)) {
         std::ifstream check_progress(user_progress_path);
         increment_progress(user_progress_path, check_progress);
         event.send("```That's right...\nIn the next message I'll send, a document of exposes will be laid out against Nicole, the one whose hubris led to her eventual downfall.\n\nTell me if you're ready.```");

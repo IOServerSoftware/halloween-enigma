@@ -39,3 +39,4 @@ res/
 CMakeLists.txt.old
 lib/
 build-mac/
+build-deb/

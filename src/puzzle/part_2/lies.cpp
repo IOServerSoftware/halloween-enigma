@@ -32,10 +32,12 @@ void lies(dpp::cluster& bot, const dpp::message_create_t& event, std::string& us
     } else if (current == 11 && fs::exists(__user_progress_container(event.msg.author.id)+"_lies.txt")) {
         Lie lie = is_solved(event.msg.content.substr(prefix.length()));
         std::ifstream check_progress(user_progress_path);
+        bot.message_delete(event.msg.id, event.msg.channel_id);
         switch (lie) {
             case SOLVED:
                 increment_progress(user_progress_path, check_progress);
                 event.send("https://cdn.discordapp.com/attachments/1288880397794672781/1289024002400059453/code_2.wav?ex=66f750a7&is=66f5ff27&hm=dc9accb9ee54de85ce44d5098d7ce84054c7b85a174b536272a3875ffdb1814c&");
+                std::this_thread::sleep_for(std::chrono::seconds(60));
                 event.send("```Now who do you see when you're being spied on?```");
                 break;
             case UNSOLVED:
