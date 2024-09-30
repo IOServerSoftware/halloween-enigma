@@ -32,10 +32,10 @@
 *.app
 
 # Others
-cfg/
 .vscode/
-lib/
 build/
 .DS_Store
 res/
 CMakeLists.txt.old
+lib/
+build-mac/

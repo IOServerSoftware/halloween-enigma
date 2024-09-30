@@ -1,6 +1,8 @@
 #include "puzzle.h"
+#include <iostream>
 
 PuzzleStatus get_status(int progress) {
+    std::cout << "[EXTERNAL CONSOLE IO] User's current puzzle is: " << std::to_string(progress) << std::endl;
     switch (progress) {
         case 1: return START;
         case 2: return BLACKBIRD;
@@ -15,7 +17,7 @@ PuzzleStatus get_status(int progress) {
         case 11: return LIES;
         case 12: return STALKER;
         case 13: return SIX_FEET;
-        case 14: return IN_THE_WOODS;
+        case 14: return MOSAIC_PREVALENCE;
         case 15: return THERE_IS_NOTHING_FOR_ME_TO_WANT;
         case 16: return RED_SNOW;
         case 17: return SOMEONE_IS_WAITING;
@@ -37,8 +39,6 @@ PuzzleStatus get_status(int progress) {
         case 33: return FINAL_CONFRONTATION_PT_5;
         case 34: return FINAL_CONFRONTATION_PT_6;
         case 35: return NICOLE_IS_SAVED;
-        case 36: return THIS_IS_NOT_THE_LAST_OF_ME;
-        case 37: return THERE_IS_ANOTHER;
         default: return NOT_STARTED;
     }
 }

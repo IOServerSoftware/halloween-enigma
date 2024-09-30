@@ -27,13 +27,13 @@ std::unordered_map<Manifesto, std::string> manifesto_messages = {
     { FEBRUARY, "```18TH FEBRUARY 2005\nThe exorcist of the omen\n\n\n\n\n\n\n\nTHEY HAVE FINALLY GIVEN BIRTH.```" }
 };
 
-bool are_manifestos_viewed(std::string& user_id) {
-    if (fs::exists(__user_progress_container(std::stoi(user_id)) + user_id + "_dec.txt") && fs::exists(__user_progress_container(std::stoi(user_id)) + user_id + "_oct.txt") && fs::exists(__user_progress_container(std::stoi(user_id)) + user_id + "_nov.txt")) return true;
+bool are_manifestos_viewed(const dpp::message_create_t& event) {
+    if (fs::exists(__user_progress_container(event.msg.author.id)+"_dec.txt") && fs::exists(__user_progress_container(event.msg.author.id)+"_oct.txt") && fs::exists((__user_progress_container(event.msg.author.id)+"_nov.txt"))) return true;
     else return false;
 }
 
 void handle_manifesto(dpp::cluster& bot, const dpp::message_create_t& event, Manifesto manifesto, const std::string& user_id) {
-    std::string file_path = __user_progress_container(event.msg.author.id) + user_id;
+    std::string file_path = __user_progress_container(event.msg.author.id);
 
     // Check if the user has already viewed this manifesto
     std::string manifesto_suffix;
@@ -63,7 +63,7 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
             logon_status << "1";
             logon_status.close();
         }
-        event.send("```WELCOME, " + user_id + ".\nLook through the files here by calling their month.```");
+        event.send("```WELCOME, " + event.msg.author.global_name + ".\nLook through the files here by calling their month.```");
         event.send("```1. 15TH DECEMBER 1993\n2. 18TH OCTOBER 2001\n3. 7TH NOVEMBER 2008\n4. 15TH MAY 2004\n5. 18 FEBRUARY 2005```");
         std::cout << "[EXTERNAL CONSOLE IO] Puzzle " << current << " deployed." << std::endl;
         bot.message_delete(event.msg.id, event.msg.channel_id);
@@ -82,9 +82,9 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
 
         // Check for the MAY case with previous manifesto checks
         if (manifesto == MAY) {
-            if (are_manifestos_viewed(user_id)) {
-                if (!fs::exists(__user_progress_container(event.msg.author.id) + user_id + "_may.txt")) {
-                    std::ofstream may_viewed(__user_progress_container(event.msg.author.id) + user_id + "_may.txt");
+            if (are_manifestos_viewed(event)) {
+                if (!fs::exists(__user_progress_container(event.msg.author.id) + "_may.txt")) {
+                    std::ofstream may_viewed(__user_progress_container(event.msg.author.id) + "_may.txt");
                     may_viewed << "1";
                     may_viewed.close();
                 }
@@ -98,7 +98,7 @@ void logon(dpp::cluster& bot, const dpp::message_create_t& event, std::string& u
 
         // Check for the FEBRUARY case with previous manifesto checks
         if (manifesto == FEBRUARY) {
-            if (fs::exists(__user_progress_container(event.msg.author.id) + user_id + "_may.txt")) {
+            if (fs::exists(__user_progress_container(event.msg.author.id) + "_may.txt")) {
                 event.send(manifesto_messages[FEBRUARY]);
                 std::ifstream check_progress(user_progress_path);
                 increment_progress(user_progress_path, check_progress);

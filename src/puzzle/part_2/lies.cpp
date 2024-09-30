@@ -36,6 +36,7 @@ void lies(dpp::cluster& bot, const dpp::message_create_t& event, std::string& us
             case SOLVED:
                 increment_progress(user_progress_path, check_progress);
                 event.send("https://cdn.discordapp.com/attachments/1288880397794672781/1289024002400059453/code_2.wav?ex=66f750a7&is=66f5ff27&hm=dc9accb9ee54de85ce44d5098d7ce84054c7b85a174b536272a3875ffdb1814c&");
+                event.send("```Now who do you see when you're being spied on?```");
                 break;
             case UNSOLVED:
                 event.send("https://cdn.discordapp.com/attachments/1288880397794672781/1289024001691353098/code_1_1.wav?ex=66f750a6&is=66f5ff26&hm=664f6a984b46c14b72925f6a3cae5934ad02e8c4c34ea4e607dbf1552f79d0f1&");

@@ -2,7 +2,7 @@
 #include <string>
 #include <dpp/dpp.h>
 
-dpp::webhook fake_nicole("https://discord.com/api/webhooks/1289193867639263232/pBAbN5te4tUfeaSzZ5P4O4-sUUe5zC1gLeeYqaMqJRveyiyCpo11xrC64A3m_ovOEgwk");
+dpp::webhook fake_nicole("https://discord.com/api/webhooks/1289414707001692252/gH1WmKX0gSS7m-nRbzdVPCCI9tfue9PMlDi9Ng5zpOJPfliAkFf1VwwP11eK6XbF6X-i");
 
 Taunt get_taunt(std::string taunt_call) {
     // initial
@@ -23,13 +23,14 @@ Taunt get_taunt(std::string taunt_call) {
     if (taunt_call == "something is happening") return SUSPICIOUS_ACTS;
     if (taunt_call == "give up") return GIVE_HER_UP;
     if (taunt_call == "dead?") return SHE_IS_DEAD_OR_IS_SHE;
-    // move this pointer downwards if you're done with a taunt.
-    // anything below is to be implemented.
     if (taunt_call == "wait") return WHAT_ARE_YOU_WAITING_FOR;
     if (taunt_call == "halfway") return HALFWAY_THROUGH;
     if (taunt_call == "more pain") return MORE_PAIN;
     if (taunt_call == "brrr") return POWER_DRILL_THREAT;
     if (taunt_call == "buzz") return POWER_DRILL_ON_BESTIE;
+
+    // move this pointer downwards if you're done with a taunt.
+    // anything below is to be implemented.
     if (taunt_call == "relay") return NICOLE_REAL_RELAY;
     if (taunt_call == "help") return SHE_NEEDS_HELP;
     if (taunt_call == "shodan 1") return SHODAN_HACK_1;
