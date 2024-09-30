@@ -37,3 +37,5 @@ build/
 .DS_Store
 res/
 CMakeLists.txt.old
+lib/
+build-mac/

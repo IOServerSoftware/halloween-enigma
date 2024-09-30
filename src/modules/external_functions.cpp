@@ -19,11 +19,13 @@ int read_progress(std::string& user_progress_path) {
     return std::stoi(puzzle_progress);
 }
 
-void reset_progress(std::string& user_progress_path) {
-    std::ofstream reset_prog(user_progress_path, std::ofstream::trunc);
-    reset_prog << "0";
-    std::cout << "[EXTERNAL CONSOLE IO] Progress reset on " << user_progress_path << " to 0. Nicole has died on their end." << std::endl;
-    reset_prog.close();
+void reset_progress(std::string user_container, const dpp::message_create_t& event) {
+    if(fs::exists(user_container) && fs::is_directory(user_container)) {
+        for (const auto& entry : fs::directory_iterator(user_container)) {
+            fs::remove_all(entry);
+        }
+    }
+    std::cout << "[EXTERNAL CONSOLE IO] Progress reset on " << user_container << " to 0. Nicole has died on their end." << std::endl;
 }
 
 void increment_progress(std::string& user_progress_path, std::ifstream& current_progress) {

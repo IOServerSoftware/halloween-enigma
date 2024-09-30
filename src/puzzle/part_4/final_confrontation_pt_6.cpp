@@ -22,6 +22,9 @@ bool is_apocalypse(const dpp::message_create_t& event) {
     if (event.msg.content.substr(prefix.length()) == "extinction") return true;
     if (event.msg.content.substr(prefix.length()) == "Extinction") return true;
     if (event.msg.content.substr(prefix.length()) == "EXTINCTION") return true;
+    if (event.msg.content.substr(prefix.length()) == "armageddon") return true;
+    if (event.msg.content.substr(prefix.length()) == "Armageddon") return true;
+    if (event.msg.content.substr(prefix.length()) == "ARMAGEDDON") return true;
     return false;
 }
 
@@ -99,7 +102,7 @@ void final_confrontation_pt_6(dpp::cluster& bot, const dpp::message_create_t& ev
             event.send("Nada. Nichts. Keine. No more.");
             std::this_thread::sleep_for(std::chrono::seconds(5));
             event.send("```GAME OVER.\n\nYour progress was RESET back to the beginning!\nTry again by typing `> start`.```");
-            reset_progress(user_progress_path);
+            reset_progress(__user_progress_container(event.msg.author.id), event);
         }
     }
 }
