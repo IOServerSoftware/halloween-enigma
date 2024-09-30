@@ -33,10 +33,8 @@ void final_confrontation_pt_6(dpp::cluster& bot, const dpp::message_create_t& ev
     int current = read_progress(user_progress_path);
     std::ifstream check_progress(user_progress_path);
     if (current == 34 && fs::exists(__user_progress_container(event.msg.author.id)+"_enigma.txt") && !fs::exists(__user_progress_container(event.msg.author.id)+"_enigma-dec.txt")) {
-        if (event.msg.content.substr(prefix.length()) == enigma.solved_text) {
+        if (event.msg.content.substr(prefix.length()) == enigma.solved_text || event.msg.content.substr(prefix.length()) == "there was a time when the hum of machines filled the world cars planes factories all running like clockwork but one by one they fell silent it started with the small things phones stopped working then cars refused to start planes fell from the sky as their engines cut out midflight the power grids failed last plunging cities into a cold dark silence people gathered in the streets desperate for answers but none came without machines humanity was helpless governments tried to restore order but with no communications and no way to transport resources they quickly collapsed people scavenged what they could from the dead machines but food and water soon ran out the machines had been the heartbeat of human civilization and without them the world fell into chaos the only sounds left were the echoes of dying technology fading away as the last remnants of human achievement crumbled to dust") {
             std::cout << "[EXTERNAL CONSOLE IO] " << enigma.cipher_type << " cipher was solved! Enigma is defeated. Almost." << std::endl;
-            std::ofstream vigenere_complete(__user_progress_container(event.msg.author.id)+"_enigma-dec.txt");
-            vigenere_complete.close();
             bot.message_delete(event.msg.id, event.msg.channel_id);
             std::this_thread::sleep_for(std::chrono::seconds(5));
             event.send("No...");
@@ -49,6 +47,10 @@ void final_confrontation_pt_6(dpp::cluster& bot, const dpp::message_create_t& ev
             std::this_thread::sleep_for(std::chrono::seconds(2));
             event.send("Now you cannot scroll up anymore!");
             std::this_thread::sleep_for(std::chrono::seconds(2));
+            event.send("You have to SHUT THE FUCK UP while I explain the last phase!");
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            event.send("# DO NOT SEND ANY NONSENSE!");
+            std::this_thread::sleep_for(std::chrono::seconds(10));
             event.send("I have one final question of you...");
             std::this_thread::sleep_for(std::chrono::seconds(2));
             event.send("# What do all of my ramblings talk about?");
@@ -58,6 +60,10 @@ void final_confrontation_pt_6(dpp::cluster& bot, const dpp::message_create_t& ev
             event.send("If you don't get this...");
             std::this_thread::sleep_for(std::chrono::seconds(2));
             event.send("# Nicole dies.");
+            std::this_thread::sleep_for(std::chrono::seconds(5));
+            std::ofstream enigma_complete(__user_progress_container(event.msg.author.id)+"_enigma-dec.txt");
+            enigma_complete.close();
+            event.send("Remember... one chance.\n# THINK ABOUT THIS. DO NOT BE IMPULSIVE.");
         }
     } else if (current == 34 && fs::exists(__user_progress_container(event.msg.author.id)+"_enigma-dec.txt")) {
         if (is_apocalypse(event)) {
